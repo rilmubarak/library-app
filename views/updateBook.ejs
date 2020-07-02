@@ -1,0 +1,14 @@
+<%- include('partial/header')%>
+    <%if(alert){%>
+        <p style="color: red;"><%= alert%></p>
+    <%}%>
+    <h1>Update</h1>
+
+    <form action="/books/update/<%= dataBook.id%>" method="POST">
+        <label for="stock">Jumlah buku yang ingin ditambahkan</label><br>
+        <input type="number" name="stock"><br><br>
+
+        <input type="submit" value="tambahkan">
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<%- include('partial/header')%>
+    <%if(alert){%>
+        <p style="color: red;"><%= alert%></p>
+    <%}%>
+    <table border="1px">
+        <tr>
+            <th>Id</th>
+            <th>Nama Buku</th>
+            <th>Stock</th>
+            <th>Last Update</th>
+            <th>Action</th>
+        </tr>
+        <% for(let i = 0; i < dataBook.length;i++){%>
+            <%if(dataBook[i].stock === 0){%>
+        <tr>
+            <td><%= dataBook[i].id%></td>
+            <td><%= dataBook[i].tittle%></td>
+            <td><%= dataBook[i].stock%></td>
+            <td><%= lastUpdate[i]%></td>
+            <td><a href="/books/delete/<%= dataBook[i].id%>" onclick="return confirm('apakah anda yakin mau menghapus data ini?')">Delete</a></td> 
+        </tr>
+            <%}%>
+        <%}%>
+    </table>
+</body>
+</html>

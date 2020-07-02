@@ -1,0 +1,16 @@
+<%- include('partial/header')%>
+    <h1>Add Book</h1>
+    <%if(alert){%>
+        <p style="color: red;"><%= alert%></p>
+    <%}%>
+    <form action="add" method="POST">
+        <label for="tittle">Title</label><br>
+        <input type="text" name="tittle"><br><br>
+
+        <label for="stock">Stock</label><br>
+        <input type="number" name="stock"><br><br>
+
+        <input type="submit" value="add">
+    </form>
+</body>
+</html>
