@@ -1,0 +1,30 @@
+<%- include('partial/header')%>
+    <a href="/books/add">Add New Book</a>
+    <a href="/books/empty">Book out of stock</a>
+
+    <br><br><br>
+    <%if(alert){%>
+        <p style="color: red;"><%= alert%></p>
+    <%}%>
+    <table border="1px">
+        <tr>
+            <th>Id</th>
+            <th>Nama Buku</th>
+            <th>Stock</th>
+            <th>Last Update</th>
+            <th>Action</th>
+        </tr>
+        <% for(let i = 0; i < dataBook.length;i++){%>
+            <%if(dataBook[i].stock > 0){%>
+        <tr>
+            <td><%= dataBook[i].id%></td>
+            <td><%= dataBook[i].tittle%></td>
+            <td><%= dataBook[i].stock%></td>
+            <td><%= lastUpdate[i]%></td>
+            <td><a href="/books/update/<%= dataBook[i].id%>">Update</a></td> 
+        </tr>
+            <%}%>
+        <%}%>
+    </table>
+</body>
+</html>

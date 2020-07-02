@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="home.css" rel="stylesheet">
-</head>
-<body>
-    <div id="view" style="text-align: center;">
-        <br><br><br><br><br><br><br><br>
-        <h1>LIBRARY's APP</h1>
-        <h3>Selamat datang di aplikasi library</h3>
-        <p>akses</p>
-        <a href="admins/login">Login Sebagai Admin</a>
-        <a href="users/login">Login Sebagai User</a>
-    
-    </div>
- 
+<%- include('partials/header') %>
 
-</body>
-</html>
+
+<br><br><br><br><br><br><br><br>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="btn col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-black font-weight-bold">Welcome to<br>Library App</h1>
+                <hr class="divider my-4" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 font-weight-light mb-5">Purpose dari app ini adalah untuk memudahkan borrower(peminjam buku) untuk meminjam buku dari perpustakaan.</p>
+                <a class="btn btn-info btn-xl js-scroll-trigger" href="#">available book</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<%- include('partials/footer') %>
