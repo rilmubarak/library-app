@@ -1,11 +1,19 @@
-const router =require('express').Router()
+const router = require('express').Router()
 const UserController =require('../controllers/UserController')
 
+function loginAsUser(req, res, next) {
+    if(req.session.userId && req.session.isAdmin === false){
+        next()
+    }else{
+        res.redirect('/unauthorized')
+    }
+}
 
-router.get('/login', UserController.login)
-router.post('/login', UserController.loginPost)
-router.get('/register', UserController.register)
-router.post('/register', UserController.registerPost)
+router.use(loginAsUser)
 
+router.get('/', UserController.show)
+
+router.post('/borrow', UserController.borrow)
+router.get('/return/:id/:id1', UserController.return)
 
 module.exports = router
