@@ -1,8 +1,10 @@
-const {Admin, Book, User, UserBook} = require('../models')
+const { Admin, Book, User, UserBook } = require('../models')
 class AdminController{
+
     static login(req, res){
         res.render('loginAdmin', {alert: req.query.message})
     }
+
     static loginPost(req, res){
         let emailAdmin = req.body.email
         let passwordAdmin = req.body.password
