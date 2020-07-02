@@ -10,14 +10,14 @@ class AdminController{
         let passwordAdmin = req.body.password
         Admin.findAll()
             .then(data =>{
-                for(let i = 0; i < data.length; i++){
-                    if(data[i].email === emailAdmin && data[i].password === passwordAdmin){
-                        console.log('succes login')
-                    }
-                    else{
-                        console.log('email/password salah')
-                    }
-                }
+                // for(let i = 0; i < data.length; i++){
+                //     // if(data[i].email === emailAdmin && data[i].password === passwordAdmin){
+                //     //     res.redirect('/books/admin')
+                //     // }
+                //     // else{
+                //     //     console.log('email/password salah')
+                //     // }
+                // }
             })
             .catch(err =>{
                 res.render('error', {error:err})
