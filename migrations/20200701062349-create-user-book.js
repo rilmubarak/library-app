@@ -8,10 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      bookId: {
+      BookId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
-      userId: {
+      UserId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {

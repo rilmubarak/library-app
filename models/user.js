@@ -14,11 +14,45 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
+    first_name:{
+      type: DataTypes.STRING,
+      validate:{
+        notEmpty:{
+          args: true,
+          msg: "first_name tidak boleh kosong!"
+        }
+      }} ,
+    last_name:{type: DataTypes.STRING} ,
+    email:{
+      type: DataTypes.STRING,
+    validate:{
+      isEmail:{
+        args: true,
+        msg: "Email tidak boleh kosong!"
+      }
+    }} ,
+    password:{
+      type: DataTypes.STRING,
+    validate:{
+      lengthEmail(value){
+        if(value.length < 8 ){
+          throw new Error("Password harus terdiri dari minimal 8 huruf!")
+        }
+      }
+    }} 
   }, {
+    hooks:{
+      beforeCreate:(value, options) =>{
+        if(!value.last_name){
+          value.last_name = value.first_name
+        }
+      },
+      beforeUpdate:(value, options) =>{
+        if(!value.last_name){
+          value.last_name = value.first_name
+        }
+      }
+    },
     sequelize,
     modelName: 'User',
   });

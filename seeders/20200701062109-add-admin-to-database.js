@@ -11,6 +11,11 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+   returnqueryInterface.bulkInsert('Admin', [{
+       first_name: 'John',
+       last_name: 'Legend',
+       
+     }], {});
   },
 
   down:  (queryInterface, Sequelize) => {

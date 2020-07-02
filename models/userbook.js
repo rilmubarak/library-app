@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   UserBook.init({
-    bookId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    BookId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'UserBook',
