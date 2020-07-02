@@ -1,6 +1,6 @@
 const { Admin, User } = require('../models')
 const bcrypt = require('bcryptjs')
-
+let databaru
 class HomeController {
     static view (req, res){
         res.render('home')        
@@ -32,15 +32,17 @@ class HomeController {
             }
         })
         .then(data => {
-            if(!data || !(bcrypt.compareSync(req.body.password, data.password))){
-                console.log('asdadsa')
-                res.redirect('/user/show')
+            // || !(bcrypt.compareSync(req.body.password, data.password))
+            if(!data || req.body.password !== data.password ){
+                res.redirect('/signin?msg=2')
             }else{
                 req.session.userId = data.id
                 req.session.email = data.email
                 req.session.username = data.name
                 req.session.isAdmin = false
-                res.redirect('/user')
+                databaru = data.id
+                res.redirect('/user/show')
+
             }
         })
         .catch(err => {
@@ -82,7 +84,7 @@ class HomeController {
                 req.session.userId = data.id
                 req.session.username = 'Admin'
                 req.session.isAdmin = true
-                res.redirect('/admin')
+                res.redirect('/admin/show')
             }
         })
         .catch(err => {
@@ -97,4 +99,4 @@ class HomeController {
 }
 
 
-module.exports = HomeController
+module.exports = {HomeController, databaru}

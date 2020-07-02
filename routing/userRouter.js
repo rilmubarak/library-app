@@ -1,24 +1,20 @@
 const router = require('express').Router()
 const UserController =require('../controllers/UserController')
-
-router.get('/show', UserController.showUser)
-router.get('/borrow/:id', UserController.borrow)
-router.get('/return/:id', UserController.returningBook)
-
-router.get('/', UserController.show)
-
-router.post('/borrow', UserController.borrow)
-router.get('/return/:id/:id1', UserController.return)
-
+let newData = []
 function loginAsUser(req, res, next) {
-    if(req.session.userId && req.session.isAdmin === false){
+    if(req.session.userId){
         next()
+        
     }else{
         res.redirect('/unauthorized')
     }
 }
-
+router.get('/show', loginAsUser, UserController.showUser)
 router.use(loginAsUser)
+router.get('/borrow/:id', UserController.borrow)
+router.get('/return/:id', UserController.returningBook)
+router.get('/logout', UserController.logout)
+
 
 
 module.exports = router

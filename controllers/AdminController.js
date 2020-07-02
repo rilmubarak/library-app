@@ -117,8 +117,15 @@ class AdminController{
         })
     }
 
-    static showUser(req, res){
-        
+    static logout(req, res){
+        req.session.destroy(function(err){
+            if(err){
+                res.send(err)
+            }
+            else{
+                res.redirect('/')
+            }
+        })
     }
 
 }

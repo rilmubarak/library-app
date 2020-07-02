@@ -1,6 +1,7 @@
 <%- include('partial/header')%>
     <a href="/admin/add">Add New Book</a>
     <a href="/admin/empty">Book out of stock</a>
+    <a href="/admin/logout">logout</a>
 
     <br><br><br>
     <%if(alert){%>
@@ -21,7 +22,7 @@
             <td><%= dataBook[i].tittle%></td>
             <td><%= dataBook[i].stock%></td>
             <td><%= lastUpdate[i]%></td>
-            <td><a href="/admin/update/<%= dataBook[i].id%>">Update</a> | <a href="/admin/showUser/<%= dataBook[i].id%>">Show User</a></td> 
+            <td><a href="/admin/update/<%= dataBook[i].id%>">Update</a></td> 
         </tr>
             <%}%>
         <%}%>

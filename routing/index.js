@@ -2,7 +2,7 @@ const router = require('express').Router()
 const adminRouter = require('./adminRouter')
 const bookRouter = require('./bookRouter')
 const userRouter= require('./userRouter')
-const HomeController = require('../controllers/HomeController')
+const {HomeController} = require('../controllers/HomeController')
 
 router.get('/', HomeController.view)
 
