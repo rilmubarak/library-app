@@ -17,7 +17,7 @@
             <td><%= dataBook[i].tittle%></td>
             <td><%= dataBook[i].stock%></td>
             <td><%= lastUpdate[i]%></td>
-            <td><a href="/books/delete/<%= dataBook[i].id%>" onclick="return confirm('apakah anda yakin mau menghapus data ini?')">Delete</a></td> 
+            <td><a href="/admin/delete/<%= dataBook[i].id%>" onclick="return confirm('apakah anda yakin mau menghapus data ini?')">Delete</a></td> 
         </tr>
             <%}%>
         <%}%>

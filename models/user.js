@@ -18,32 +18,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    first_name:{
-      type: DataTypes.STRING,
-      validate:{
-        notEmpty:{
-          args: true,
-          msg: "first_name tidak boleh kosong!"
-        }
-      }} ,
-    last_name:{type: DataTypes.STRING} ,
-    email:{
-      type: DataTypes.STRING,
-    validate:{
-      isEmail:{
-        args: true,
-        msg: "Email tidak boleh kosong!"
-      }
-    }} ,
-    password:{
-      type: DataTypes.STRING,
-    validate:{
-      lengthEmail(value){
-        if(value.length < 8 ){
-          throw new Error("Password harus terdiri dari minimal 8 huruf!")
-        }
-      }
-    }} 
+    first_name: {
+      type: DataTypes.STRING
+    },
+    last_name: {
+      type: DataTypes.STRING
+    },
+    email: {
+      type: DataTypes.STRING
+    },
+    password: {
+      type: DataTypes.STRING
+    }
   }, {
     hooks:{
       beforeCreate:(value, options) =>{

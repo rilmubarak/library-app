@@ -11,4 +11,17 @@ router.get('/empty', AdminController.empty)
 router.get('/showUser/:id',  AdminController.showUser)
 
 
+function loginAsAdmin(req, res, next) {
+    if(req.session.userId && req.session.isAdmin){
+        next()
+    }else{
+        res.redirect('/unauthorized')
+    }
+}
+
+router.use(loginAsAdmin)
+
+
+
+
 module.exports = router

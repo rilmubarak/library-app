@@ -1,27 +1,23 @@
-<%- include('partial/header')%>
-    <a href="/admin/add">Add New Book</a>
-    <a href="/admin/empty">Book out of stock</a>
-
-    <br><br><br>
-    <%if(alert){%>
-        <p style="color: red;"><%= alert%></p>
-    <%}%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
     <table border="1px">
         <tr>
-            <th>Id</th>
             <th>Nama Buku</th>
             <th>Stock</th>
             <th>Last Update</th>
-            <th>Action</th>
         </tr>
         <% for(let i = 0; i < dataBook.length;i++){%>
             <%if(dataBook[i].stock > 0){%>
         <tr>
-            <td><%= dataBook[i].id%></td>
             <td><%= dataBook[i].tittle%></td>
             <td><%= dataBook[i].stock%></td>
             <td><%= lastUpdate[i]%></td>
-            <td><a href="/admin/update/<%= dataBook[i].id%>">Update</a> | <a href="/admin/showUser/<%= dataBook[i].id%>">Show User</a></td> 
         </tr>
             <%}%>
         <%}%>

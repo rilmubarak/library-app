@@ -27,7 +27,7 @@ class AdminController{
         }
         Book.create(newBook)
             .then(data =>{
-                res.redirect('/admins/show?message=berhasil menambahkan buku')
+                res.redirect('/admin/show?message=berhasil menambahkan buku')
             })
             .catch(err =>{
                 let message = []
@@ -36,7 +36,7 @@ class AdminController{
                     for(let i = 0 ; i < err.errors.length;i++){
                         message.push(err.errors[i].message)
                     }
-                    res.redirect(`/admins/add?message="${message.join(',')}"`)
+                    res.redirect(`/admin/add?message="${message.join(',')}"`)
                 }
                 else{
                     res.render('error', {error:err})
@@ -74,7 +74,7 @@ class AdminController{
             })
 
             .then(data =>{
-                res.redirect('/admins/show?message=berhasil mengupdate buku')
+                res.redirect('/admin/show?message=berhasil mengupdate buku')
             })
             .catch(err =>{
                 let message = []
@@ -83,7 +83,7 @@ class AdminController{
                     for(let i = 0 ; i < err.errors.length;i++){
                         message.push(err.errors[i].message)
                     }
-                    res.redirect(`/admins/update/${getId}?message="${message.join(',')}"`)
+                    res.redirect(`/admin/update/${getId}?message="${message.join(',')}"`)
                 }
                 else{
                     res.render('error', {error:err})
@@ -98,7 +98,7 @@ class AdminController{
             },
             returning: true})
         .then(data =>{
-            res.redirect('/admins/empty?message=berhasil menghapus buku')
+            res.redirect('/admin/empty?message=berhasil menghapus buku')
         })
     }
 
