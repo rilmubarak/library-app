@@ -1,11 +1,14 @@
 const router =require('express').Router()
 const AdminController = require('../controllers/AdminController')
 
-
-router.get('/login', AdminController.login)
-router.post('/login', AdminController.loginPost)
-router.get('/register', AdminController.register)
-router.post('/register', AdminController.registerPost)
+router.get('/show', AdminController.showAdmin)
+router.get('/add', AdminController.add)
+router.post('/add', AdminController.addPost)
+router.get('/update/:id', AdminController.update)
+router.post('/update/:id', AdminController.updatePost)
+router.get('/delete/:id', AdminController.delete)
+router.get('/empty', AdminController.empty)
+router.get('/showUser/:id',  AdminController.showUser)
 
 
 module.exports = router

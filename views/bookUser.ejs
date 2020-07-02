@@ -1,11 +1,7 @@
-<%- include('partial/header')%>
-    <a href="/admins/add">Add New Book</a>
-    <a href="/admins/empty">Book out of stock</a>
-
-    <br><br><br>
-    <%if(alert){%>
+<%- include('partial/headerUser')%>
+    <!-- <%if(alert){%>
         <p style="color: red;"><%= alert%></p>
-    <%}%>
+    <%}%> -->
     <table border="1px">
         <tr>
             <th>Id</th>
@@ -21,7 +17,7 @@
             <td><%= dataBook[i].tittle%></td>
             <td><%= dataBook[i].stock%></td>
             <td><%= lastUpdate[i]%></td>
-            <td><a href="/admins/update/<%= dataBook[i].id%>">Update</a> | <a href="/admins/showUser/<%= dataBook[i].id%>">Show User</a></td> 
+            <td><a href="/users/borrow/<%= dataBook[i].id%>" onclick="return confirm('apakah anda yakin mau meminjam buku ini?')">Borrow Book</a> | <a href="/users/return/<%= dataBook[i].id%>" onclick="return confirm('apakah anda yakin mau mengembalikan buku ini?')">Return Book</a></td> 
         </tr>
             <%}%>
         <%}%>
